@@ -1,0 +1,190 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+<meta charset="UTF-8" />  
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+<title>Darling</title>  
+<style>  
+  body {  
+    background-image: url('https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-hoa-tulip-1.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    height: 100vh;  
+    margin: 0;  
+
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;  
+  }  
+
+  /* Định dạng chung cho nội dung chính */  
+  .content {  
+    background-color: rgba(0, 0, 0, 0.3);  
+    padding: 20px;  
+    border-radius: 10px;  
+    text-align: center;  
+  }  
+
+  /* Chữ màu hồng cho tất cả thẻ phù hợp */  
+  h1, p, .name-label {  
+    color: pink;  
+    font-family: Arial, sans-serif;  
+  }  
+
+  /* Style riêng cho hình GIF */  
+  .gif-img {  
+    display: block;  
+    margin: 20px auto; /* nằm giữa */  
+    width: 300px; /* kích thước to hơn */  
+    max-width: 80%;  
+    height: auto;  
+    border-radius: 5px;  
+  }  
+
+  /* Style cho input */  
+  input[type="text"] {  
+    padding: 10px;  
+    font-size: 1em;  
+    border-radius: 5px;  
+    border: 2px solid #ccc;  
+    outline: none;  
+  }  
+
+  input[type="text"]:focus {  
+    border-color: pink;  
+    box-shadow: 0 0 8px pink;  
+  }  
+
+  /* Style nút xác nhận */  
+  #confirmBtn {  
+    margin-top: 10px;  
+    padding: 10px 20px;  
+    font-size: 1em;  
+    border-radius: 5px;  
+    border: none;  
+    background-color: pink;  
+    cursor: pointer;  
+  }  
+</style>  
+</head> <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+ 
+<body>  
+
+<!-- Hình ảnh nhỏ ở góc trái -->  
+<img src="../gif/cutee.gif" alt="cute" style="  
+  position: fixed;  
+  top: 10px;  
+  left: 10px;  
+  width: 200px;  
+  height: auto;  
+  z-index: 9999;  
+  border-radius: 5px;  
+"/>
+<!-- Hình ảnh nhỏ ở góc phải -->     
+<img src="../gif/cutee.gif" alt="cute" style="  
+  position: fixed;  
+  top: 10px;  
+  right: 10px;  
+  width: 200px;  
+  height: auto;  
+  z-index: 9999;  
+  border-radius: 5px;  
+"/>
+
+<!-- Nội dung chính -->  
+<div class="content">  
+  <h1>Tớ Chào Đằng Ấy Nhé Mừng Là Cậu Đã Ghé Thăm</h1>  
+  <!-- Hình GIF lớn, nằm giữa -->  
+  <img src="..//gif/cute.gif" alt="" class="gif-img" />  
+  <p style="font-size: 2em;">Trước Tiên Thì Cho Tớ Làm Quen Cậu Cái Đã Nhé</p>  
+  <div class="name-label" style="font-size: 1.5em;">Cho Bổn Cung Xin Cái Tên Của Nhà Ngươi ?</div>  
+  <input type="text" placeholder="Nhập tên của bạn" />  
+  <!-- Nút xác nhận -->  
+  <button id="confirmBtn">Xác nhận</button>  
+</div>  
+<!-- Nội dung trang mới -->
+<div id="newContent" style="display:none; padding:20px; text-align:center;">
+  <h2 style="color: pink;">Vui lòng điền các thông tin sau:</h2>
+  <!-- Ngày sinh -->
+  <div style="margin-top:10px;">
+    <label for="dob" style="display:block; color:pink;">Ngày Tháng Năm Sinh Của Cậu:</label>
+    <input type="date" id="dob" style="width:100%; padding:10px; border-radius:5px; border:2px solid #ccc;" />
+  </div>
+  
+  <!-- Sở thích -->
+  <div style="margin-top:10px;">
+    <label for="sothich" style="display:block; color:pink;">Tớ Có Thể Liên Lạc Với Cậu Qua Số Phone Khum:</label>
+    <input type="text" id="sothich" placeholder="Ghi sở thích của bạn" style="width:100%; padding:10px; border-radius:5px; border:2px solid #ccc;" />
+  </div>
+  
+  <!-- Câu hỏi có muốn nhận quà -->
+  <div style="margin-top:10px;">
+    <label for="quatang" style="display:block; color:pink;">Bên Mình Có Một Phần Quà Nho Nhỏ Muốn Gửi Đến Bạn, Bạn Có Đồng Ý Không Ạ?</label>
+    <input type="text" id="quatang" placeholder="Trả lời..." style="width:100%; padding:10px; border-radius:5px; border:2px solid #ccc;" />
+  </div>
+  <button id="confirmNext">Xác nhận</button> 
+</div>
+<!-- Nội dung trang mới -->  
+<div id="secondepage" style="display:none; padding:20px; text-align:center;">  
+  <h2  style="color: pink;">Chúc Mừng Cậu Đã Đến Được Đây NHé!</h3>  
+  <p style="color: pink;">Đợi Chờ Cái Rì Nữa Bấm Nút Và Nhận Lấy Phần Thưởng Điiiii !!</p>
+  <div id="spinContainer" style="display:none; margin-top:20px; text-align:center;">
+  <p style="color: pink; font-size: 1.5em;">🎁 Kết quả bốc thăm:</p>
+  <div id="result" style="color: yellow; font-size: 2em; margin-top: 10px;"></div>
+  <button id="spinBtn" style="margin-top:20px; padding:10px 20px; border:none; background:pink; border-radius:5px; cursor:pointer;">
+    Bốc thăm
+  </button>
+</div>  
+</div>  
+<script>
+  const mainContent = document.querySelector('.content');
+  const newContent = document.getElementById('newContent');
+  const secondPage = document.getElementById('secondepage');
+
+  // Xử lý khi nhấn nút đầu
+  document.querySelector('#confirmBtn').addEventListener('click', function() {
+    mainContent.style.display = 'none';
+    newContent.style.display = 'block';
+  });
+
+  // Xử lý khi nhấn nút thứ hai
+  document.getElementById('confirmNext').addEventListener('click', function() {
+    newContent.style.display = 'none';
+    secondPage.style.display = 'block';
+    spinContainer.style.display = 'block'; // 👈 hiện phần bốc thăm
+  });
+
+  // Danh sách phần thưởng
+  const prizes = [
+    "Một lời chúc dễ thương 🎉",
+    "Một món quà bất ngờ 🎁",
+    "Một lời tỏ tình đáng yêu 💌"
+  ];
+
+  const resultDiv = document.getElementById('result');
+  const spinContainer = document.getElementById('spinContainer');
+  const spinBtn = document.getElementById('spinBtn');
+
+  // Xử lý nút bốc thăm
+  spinBtn.addEventListener('click', function() {
+  const randomIndex = Math.floor(Math.random() * prizes.length);
+  const prize = prizes[randomIndex];
+  resultDiv.textContent = prize;
+
+  // Vô hiệu hóa nút sau khi bấm
+  spinBtn.disabled = true;
+  spinBtn.textContent = "Đã bốc thăm 🎉";
+  spinBtn.style.backgroundColor = "#ccc";
+  spinBtn.style.cursor = "not-allowed";
+
+  // Pháo hoa!
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+});
+</script>
+
